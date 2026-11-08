@@ -1,0 +1,88 @@
+/* Separa las dos secciones */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  background-color: var(--superficie);
+  transition: border-color 220ms ease;
+}
+
+.seccion:focus-within {
+  border-color: var(--linea-fuerte);
+}
+
+.seccion h2 {
+  font-size: 30px;
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.encabezado p {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+/* Migui con su globo. La altura fija evita que la página brinque. */
+.migui {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 88px;
+}
+
+.migui svg {
+  flex-shrink: 0;
+}
+
+.globo {
+  position: relative;
+  max-width: 340px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background-color: var(--superficie-alta);
+  color: var(--texto);
+  font-size: 15px;
+  line-height: 1.4;
+  transform-origin: left center;
+  animation: aparecer-globo 320ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.globo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  background-color: var(--superficie-alta);
+  transform: rotate(45deg);
+}
+
+@keyframes aparecer-globo {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+.gustos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}

@@ -1,0 +1,341 @@
+.no_encontrada {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 32px;
+}
+
+.no_encontrada h1 {
+  font-size: clamp(40px, 5vw, 60px);
+}
+
+/* Pantalla mientras se "crea" el plato */
+.creando {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  padding: 24px;
+  background-color: var(--fondo);
+  text-align: center;
+}
+
+.creando p {
+  color: var(--titulo);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.1;
+}
+
+.migas {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 34px;
+}
+
+.migas span {
+  width: 10px;
+  height: 10px;
+  border-radius: 38%;
+  background-color: var(--ambar);
+}
+
+.migas span:nth-child(even) {
+  width: 7px;
+  height: 7px;
+}
+
+.oculto {
+  visibility: hidden;
+}
+
+/* Portada */
+.portada {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.portada_foto {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.portada_foto img {
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+}
+
+.portada_velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--fondo) 3%, rgba(12, 16, 21, 0.78) 50%, rgba(12, 16, 21, 0.52));
+}
+
+.portada_contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 32px 44px;
+}
+
+.portada_contenido h1 {
+  max-width: 880px;
+  font-size: clamp(48px, 6.4vw, 82px);
+  line-height: 1;
+}
+
+.sello {
+  color: var(--ambar-claro);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Contenido */
+.contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+.ingredientes {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex: 1 1 320px;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  background-color: var(--superficie);
+}
+
+.ingredientes h2 {
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+
+.ingredientes ul {
+  padding-left: 20px;
+  color: #E6E0D3;
+}
+
+.ingredientes_cocina {
+  padding-top: 20px;
+  border-top: 1px solid #30343C;
+}
+
+.preparacion {
+  display: flex;
+  flex: 999 1 520px;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.preparacion_encabezado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.preparacion_encabezado h2 {
+  font-size: 42px;
+}
+
+.preparacion_encabezado span {
+  color: var(--texto-suave);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.barra {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: var(--linea);
+}
+
+.barra span {
+  display: block;
+  height: 100%;
+  background-color: var(--ambar);
+  transform-origin: left;
+  transition: transform 420ms var(--ease-salida);
+}
+
+.pasos {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+}
+
+/* Cada paso se puede marcar como hecho */
+.paso {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  padding: 14px 12px;
+  border: 0;
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--texto);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform var(--rapido) var(--ease-salida);
+}
+
+.paso:active {
+  transform: scale(0.99);
+}
+
+.paso_numero {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 50%;
+  color: var(--ambar);
+  font-family: var(--fuente-titulo);
+  font-size: 24px;
+  line-height: 1;
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+.paso_numero svg {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 180ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.paso_numero > span {
+  transition: opacity 160ms ease, transform 200ms var(--ease-salida);
+}
+
+/* La línea tacha el texto de izquierda a derecha */
+.paso_texto {
+  padding-top: 4px;
+  background-image: linear-gradient(var(--texto-suave), var(--texto-suave));
+  background-position: 0 58%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 420ms var(--ease-salida), color 220ms ease;
+}
+
+.paso_hecho .paso_numero {
+  background-color: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--sobre-ambar);
+}
+
+.paso_hecho .paso_numero svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.paso_hecho .paso_numero > span {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.paso_hecho .paso_texto {
+  color: var(--texto-suave);
+  background-size: 100% 1px;
+}
+
+@media (hover: hover) {
+  .paso:hover {
+    background-color: var(--superficie);
+  }
+}
+
+.aviso {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background-color: var(--alerta-fondo);
+  color: #F7C4A6;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.apartar {
+  min-width: 226px;
+}
+
+.apartada {
+  background-color: var(--seguro-texto);
+  color: var(--seguro-fondo);
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .apartada:hover {
+    background-color: var(--seguro-texto);
+  }
+}
+
+@media (max-width: 860px) {
+  .ingredientes {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .portada_contenido {
+    padding: 110px 20px 32px;
+  }
+
+  .contenido {
+    gap: 36px;
+    padding: 28px 20px 64px;
+  }
+
+  .acciones > * {
+    flex: 1 1 100%;
+  }
+}

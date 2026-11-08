@@ -1,0 +1,71 @@
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #5B5F66;
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform var(--rapido) var(--ease-salida),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.pill:active {
+  transform: scale(0.96);
+}
+
+.pill_activa {
+  background-color: var(--ambar);
+  border-color: var(--ambar);
+  color: var(--sobre-ambar);
+}
+
+/* La palomita abre su espacio y se dibuja al activar */
+.check {
+  display: inline-flex;
+  width: 0;
+  margin-right: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: width 240ms var(--ease-salida), margin-right 240ms var(--ease-salida), opacity 160ms ease;
+}
+
+.check svg {
+  flex-shrink: 0;
+}
+
+.check path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 300ms var(--ease-salida) 40ms;
+}
+
+.pill_activa .check {
+  width: 16px;
+  margin-right: 7px;
+  opacity: 1;
+}
+
+.pill_activa .check path {
+  stroke-dashoffset: 0;
+}
+
+@media (hover: hover) {
+  .pill:hover {
+    border-color: var(--ambar);
+  }
+}

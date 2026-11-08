@@ -1,0 +1,92 @@
+.pagina {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.columna {
+  display: flex;
+  flex: 999 1 560px;
+  flex-direction: column;
+  gap: 26px;
+  min-width: 0;
+  padding: 48px clamp(20px, 5vw, 72px) 64px;
+}
+
+.columna h1 {
+  font-size: clamp(44px, 5.2vw, 66px);
+  line-height: 1.02;
+}
+
+.descripcion {
+  max-width: 560px;
+  margin-top: 12px;
+  color: var(--texto-suave);
+  font-size: 18px;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Muestra cuántos platos quedan según lo que marques */
+.contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background-color: var(--sobre-ambar);
+  color: var(--ambar);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.foto {
+  position: sticky;
+  top: 73px;
+  flex: 1 1 400px;
+  height: calc(100svh - 73px);
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 980px) {
+  .foto {
+    position: relative;
+    top: 0;
+    height: 380px;
+    min-height: 0;
+    order: -1;
+  }
+
+  .columna {
+    padding-top: 36px;
+  }
+}
+
+@media (max-width: 520px) {
+  .acciones .contador {
+    display: none;
+  }
+
+  .acciones {
+    justify-content: stretch;
+  }
+
+  .acciones > * {
+    flex: 1 1 100%;
+  }
+}

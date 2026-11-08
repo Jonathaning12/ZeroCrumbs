@@ -1,0 +1,421 @@
+.app_main {
+  overflow: clip;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: min(100svh, 880px);
+  overflow: hidden;
+}
+
+.hero_foto {
+  position: absolute;
+  top: -3%;
+  right: -2%;
+  width: 72%;
+  height: 106%;
+  overflow: hidden;
+}
+
+.hero_foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 50%;
+}
+
+.hero_velo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--fondo) 33%, rgba(12, 16, 21, 0.84) 48%, rgba(12, 16, 21, 0.06) 78%),
+    linear-gradient(0deg, var(--fondo) 0%, transparent 22%);
+}
+
+.hero_contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 32px 88px;
+}
+
+.hero_contenido h1 {
+  max-width: 660px;
+  font-size: clamp(54px, 7vw, 94px);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+
+.hero_contenido p {
+  max-width: 480px;
+  color: #CFC9BC;
+  font-size: 19px;
+}
+
+.hero_botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- Dos caminos ---------- */
+.banda {
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+}
+
+.banda_contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 34px 32px;
+}
+
+.camino {
+  display: flex;
+  flex: 1 1 260px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.camino svg {
+  flex-shrink: 0;
+}
+
+.camino strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.camino p {
+  color: #A9A498;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.separador {
+  width: 1px;
+  height: 54px;
+  background-color: #30343C;
+  transform-origin: top;
+}
+
+.logo_banda {
+  color: var(--ambar);
+  font-family: var(--fuente-titulo);
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* ---------- Collage con Migui ---------- */
+.escena {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 8fr);
+  align-items: center;
+  gap: 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 32px 40px;
+}
+
+.collage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  grid-template-rows: repeat(2, 260px);
+  gap: 14px;
+}
+
+.collage_foto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Más alta que el marco para que tenga margen al moverse con el scroll */
+.collage_foto img {
+  position: absolute;
+  top: -9%;
+  left: 0;
+  width: 100%;
+  height: 118%;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-salida);
+}
+
+.collage_grande {
+  grid-row: 1 / span 2;
+}
+
+@media (hover: hover) {
+  .collage_foto:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Migui va debajo del texto, en su propio espacio */
+.migui {
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.migui_globo {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background-color: var(--superficie);
+  border: 1px solid var(--linea);
+  color: var(--texto);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.migui_globo::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--superficie);
+  border-left: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  transform: rotate(45deg);
+}
+
+.escena_texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.escena_texto h2 {
+  font-size: clamp(44px, 5vw, 68px);
+}
+
+.escena_texto p {
+  max-width: 380px;
+  color: var(--texto-suave);
+  font-size: 19px;
+}
+
+/* ---------- Bloques de foto y texto ---------- */
+.bloques {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 32px 88px;
+}
+
+.bloque {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.marco {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.marco_zoom {
+  position: absolute;
+  inset: 0;
+  transition: transform 800ms var(--ease-salida);
+}
+
+/* Más alta que el marco para que tenga margen al moverse con el scroll */
+.marco_zoom img {
+  position: absolute;
+  top: -9%;
+  left: 0;
+  width: 100%;
+  height: 118%;
+  object-fit: cover;
+}
+
+.bloque_texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 48px clamp(24px, 6vw, 88px);
+}
+
+.bloque_texto h2 {
+  font-size: clamp(38px, 4.2vw, 56px);
+}
+
+.bloque_texto p {
+  max-width: 430px;
+  color: var(--texto-suave);
+}
+
+.bloque_invertido .marco {
+  order: 2;
+}
+
+@media (hover: hover) {
+  .bloque:hover .marco_zoom {
+    transform: scale(1.03);
+  }
+}
+
+/* ---------- Cierre ---------- */
+.cierre {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cierre > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.cierre_velo {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(12, 16, 21, 0.74);
+}
+
+.cierre_contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  max-width: 800px;
+  padding: 64px 24px;
+}
+
+.cierre_contenido h2 {
+  font-size: clamp(42px, 5.4vw, 72px);
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 32px;
+  color: #A9A498;
+  font-size: 14px;
+}
+
+.pie_logo {
+  color: var(--texto);
+  font-family: var(--fuente-titulo);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.1;
+}
+
+@media (max-width: 820px) {
+  .hero_foto {
+    width: 110%;
+    right: -5%;
+    opacity: 0.6;
+  }
+
+  .hero_velo {
+    background: linear-gradient(0deg, var(--fondo) 6%, rgba(12, 16, 21, 0.55) 60%, rgba(12, 16, 21, 0.72));
+  }
+
+  .hero_contenido {
+    padding: 110px 20px 64px;
+  }
+
+  .escena {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 72px 20px 40px;
+  }
+
+  .escena_texto p {
+    font-size: 17px;
+  }
+
+  .collage {
+    grid-template-rows: repeat(2, 170px);
+    gap: 10px;
+  }
+
+  .migui {
+    margin-top: 0;
+  }
+
+  .banda_contenido,
+  .bloques,
+  .pie {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .separador {
+    display: none;
+  }
+
+  .logo_banda {
+    order: -1;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  .bloques {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .bloque {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 24px;
+  }
+
+  .marco,
+  .bloque_invertido .marco {
+    order: 0;
+    min-height: 340px;
+  }
+
+  .bloque_texto {
+    padding: 28px 4px 32px;
+  }
+
+  .cierre {
+    min-height: 480px;
+  }
+}

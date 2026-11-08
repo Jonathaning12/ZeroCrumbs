@@ -1,0 +1,102 @@
+.app_header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: background-color 280ms ease, border-color 280ms ease;
+}
+
+/* Un degradado arriba mantiene legible el menú sobre cualquier foto */
+.sobre_foto {
+  position: fixed;
+  left: 0;
+  background-image: linear-gradient(180deg, rgba(12, 16, 21, 0.72), rgba(12, 16, 21, 0));
+}
+
+.perfil {
+  background-color: rgba(12, 16, 21, 0.55);
+}
+
+.solido {
+  background-color: rgba(12, 16, 21, 0.88);
+  border-bottom-color: var(--linea);
+  backdrop-filter: blur(12px);
+}
+
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 32px;
+}
+
+.app_title {
+  color: var(--texto);
+  font-family: var(--fuente-titulo);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: color var(--rapido) ease;
+}
+
+.links {
+  display: flex;
+  gap: 36px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* La línea se dibuja de izquierda a derecha */
+.link {
+  position: relative;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  height: 1px;
+  background-color: var(--ambar);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 300ms var(--ease-salida);
+}
+
+.link[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) {
+  .app_title:hover {
+    color: var(--ambar);
+  }
+
+  .link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
+
+  .contenido {
+    padding: 12px 20px;
+  }
+
+  .app_title {
+    font-size: 28px;
+  }
+}

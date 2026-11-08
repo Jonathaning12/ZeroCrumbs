@@ -1,0 +1,151 @@
+.pagina {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+}
+
+.pagina h1 {
+  font-size: clamp(44px, 5.4vw, 68px);
+  line-height: 1.02;
+}
+
+.descripcion {
+  max-width: 560px;
+  margin: 12px 0 40px;
+  color: var(--texto-suave);
+  font-size: 18px;
+}
+
+.contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.columna_form {
+  flex: 999 1 560px;
+  min-width: 0;
+}
+
+.vista_previa {
+  position: sticky;
+  top: 100px;
+  flex: 1 1 340px;
+  min-width: 0;
+  max-width: 460px;
+}
+
+.vista_previa_titulo {
+  margin-bottom: 14px;
+  color: var(--texto-suave);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tarjeta {
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  background-color: var(--superficie);
+  box-shadow: var(--sombra-alta);
+}
+
+.tarjeta_foto {
+  height: 260px;
+  overflow: hidden;
+  background-color: var(--superficie-alta);
+}
+
+.tarjeta_foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: cambiar-foto 600ms var(--ease-salida);
+}
+
+@keyframes cambiar-foto {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+.tarjeta_info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 24px 26px;
+}
+
+.tarjeta_fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tarjeta_fila h2 {
+  min-width: 0;
+  font-size: 32px;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta_fila .vacio {
+  color: #8A8678;
+}
+
+.tarjeta_kilos {
+  color: var(--ambar);
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tarjeta_hora {
+  color: var(--texto-suave);
+  font-size: 15px;
+}
+
+.etiquetas,
+.ingredientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ingredientes {
+  list-style: none;
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.ingredientes li:not(:last-child)::after {
+  content: ' ·';
+}
+
+/* Cada etiqueta o ingrediente nuevo entra con un pequeño impulso */
+.nueva {
+  animation: aparecer-dato 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes aparecer-dato {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+  }
+}
+
+@media (max-width: 960px) {
+  .vista_previa {
+    position: static;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagina {
+    padding: 36px 20px 64px;
+  }
+}
